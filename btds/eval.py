@@ -1,15 +1,23 @@
+import argparse
+import json
+import os
+
 import numpy as np
-from sklearn.calibration import calibration_curve
-import argparse, os, json, numpy as np, pandas as pd, torch
+import pandas as pd
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 import matplotlib.pyplot as plt
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (
     confusion_matrix, ConfusionMatrixDisplay,
     RocCurveDisplay, PrecisionRecallDisplay,
-    roc_auc_score, average_precision_score
+    roc_auc_score, average_precision_score,
+    classification_report,
 )
-import torch.nn as nn
+from sklearn.calibration import calibration_curve
 
 class MLP(nn.Module):
     def __init__(self, in_dim:int, hidden:int=256, p:float=0.25, out_dim:int=2):
