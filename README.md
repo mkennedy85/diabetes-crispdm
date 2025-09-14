@@ -7,6 +7,10 @@ This project implements a textbook-quality **CRISP-DM** workflow on BRFSS 2015 d
 - A compact **PyTorch MLP** baseline suitable for **8 GB RAM** environments
 - Reproducible splits, metrics exports, and ready-to-embed figures
 
+### Medium Blog Post
+
+[📊 Predicting Diabetes from Health Indicators Using CRISP-DM](https://medium.com/@michaellkennedy/predicting-diabetes-from-health-indicators-using-crisp-dm-c824c5700e26)
+
 ## Quickstart
 ```bash
 pip install -r requirements.txt
@@ -22,7 +26,6 @@ make eval
 - `btds/train.py` — PyTorch MLP with AMP, early stopping, class weights
 - `btds/eval.py` — MLP eval: confusion matrix, ROC/PR, calibration
 - `reports/` — figures, metrics, and `report.md` (CRISP-DM write-up)
-- `blog_draft.md` — Medium post draft with [PLACEHOLDER] slots
 
 ## Data
 ## Data
