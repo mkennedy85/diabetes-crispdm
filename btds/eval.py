@@ -53,11 +53,10 @@ def main():
     X_te = scaler.transform(X_te).astype('float32')
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    model = MLP(in_dim=X.shape[1], out_dim=int(np.unique(y).shape[0])).to(device)
+    model = MLP(in_dim=X.shape[1], out_dim=int(len(np.unique(y)))).to(device)
     model.load_state_dict(torch.load(os.path.join(args.out_dir, 'mlp_best.pt'), map_location=device))
     model.eval()
 
-    import numpy as np
     with torch.no_grad():
         logits = model(torch.tensor(X_te).to(device)).cpu().numpy()
     preds = logits.argmax(1)
